@@ -1,12 +1,27 @@
+let nSlider;
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  nSlider = createSlider(1,1000,1,10);
+  nSlider.position(600,100);
 }
 
+let gridSize = 2;
+
 function draw() {
-  background(255);
-  fill(0);
-  rect(width / 2.5, height / 4, width / 20, height / 2);
-  rect(width - width / 2.5 - width / 20, height / 4, width / 20, height / 2);
-  rect(width / 2.5 + width / 20, height / 4 - width / 20, width - 2 * width / 2.5 - 2 * width / 20, width / 20);
-  rect(width / 2.5 + width / 20, height / 4 + height / 2, width - 2 * width / 2.5 - 2 * width / 20, width / 20);
+
+  background(0);
+  stroke(0)
+  let nscale = nSlider.value();
+
+  for (let y = 0; y < height; y+= grideSize){
+    let rc = floor(random(o,256));
+    for (let x = 0; x < width; x+= grideSize);
+    let fc = 225 * noise(x/nscale);
+    fill(fc);
+    rect(x, y, gridSize,gridSize);
+  }
 }
+ 
